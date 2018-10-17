@@ -17,6 +17,7 @@
 while getopts ":a:r:p:h" o; do case "${o}" in
 	h) echo -e "Optional arguments for custom use:\\n  -r: Dotfiles repository (local file or url)\\n  -p: Dependencies and programs csv (local file or url)\\n  -a: AUR helper (must have pacman-like syntax)\\n  -h: Show this message" && exit ;;
 	r) dotfilesrepo=${OPTARG} && git ls-remote "$dotfilesrepo" || exit ;;
+	r2) dotfilesrepo=${OPTARG} && git ls-remote "$dotfilesrepo2" || exit ;;
 	p) progsfile=${OPTARG} ;;
 	a) aurhelper=${OPTARG} ;;
 	*) echo "-$OPTARG is not a valid option." && exit ;;
@@ -24,6 +25,7 @@ esac done
 
 # DEFAULTS:
 [ -z ${dotfilesrepo+x} ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
+[ -z ${dotfilesrepo2+x} ] && dotfilesrepo2="https://github.com/lukesmithxyz/voidrice.git"
 [ -z ${progsfile+x} ] && progsfile="https://raw.githubusercontent.com/allbombson/TARBS/master/progs.csv"
 [ -z ${aurhelper+x} ] && aurhelper="yay"
 
@@ -197,6 +199,7 @@ installationloop
 
 # Install the dotfiles in the user's home directory
 putgitrepo "$dotfilesrepo" "/home/$name"
+putgitrepo "$dotfilesrepo2" "/home/$name"
 
 # Install the LARBS Firefox profile in ~/.mozilla/firefox/
 putgitrepo "https://github.com/LukeSmithxyz/mozillarbs.git" "/home/$name/.mozilla/firefox"
