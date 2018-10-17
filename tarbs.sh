@@ -202,12 +202,14 @@ installationloop
 #setup zsh
 runuser -l  $name -c 'chsh -s $(which zsh)'
 su $name -c 'chsh -s $(which zsh)'
+cd /home/$name/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 su $name -c 'chmod +x ./install.sh'
 su $name -c 'bash install.sh'
 chmod a+x /home/$name/*
 
-
+putgitrepo "$dotfilesrepo" "/home/$name"
+putgitrepo "$dotfilesrepo2" "/home/$name"
 
 
 # Install the LARBS Firefox profile in ~/.mozilla/firefox/
