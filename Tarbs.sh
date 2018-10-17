@@ -1,7 +1,8 @@
 #!/bin/bash
 #
-# Luke's Auto Rice Boostrapping Script (LARBS)
-# by Luke Smith <luke@lukesmith.xyz>
+# Thomas's Auto Rice Boostrapping Script (TARBS)
+# OG code by Luke Smith <luke@lukesmith.xyz>
+# Edited By Thomas Lane <thomas_lane@icloud.con>
 # License: GNU GPLv3
 
 # You can provide a custom repository with -r or a custom programs csv with -p.
@@ -23,7 +24,7 @@ esac done
 
 # DEFAULTS:
 [ -z ${dotfilesrepo+x} ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
-[ -z ${progsfile+x} ] && progsfile="https://raw.githubusercontent.com/LukeSmithxyz/LARBS/master/progs.csv"
+[ -z ${progsfile+x} ] && progsfile="https://raw.githubusercontent.com/allbombson/TARBS/master/progs.csv"
 [ -z ${aurhelper+x} ] && aurhelper="yay"
 
 ###
@@ -37,7 +38,7 @@ preinstallmsg() { \
 	}
 
 welcomemsg() { \
-	dialog --title "Welcome!" --msgbox "Welcome to Luke's Auto-Rice Bootstrapping Script!\\n\\nThis script will automatically install a fully-featured i3wm Arch Linux desktop, which I use as my main machine.\\n\\n-Luke" 10 60
+	dialog --title "Welcome!" --msgbox "Welcome to Thomas's Auto-Rice Bootstrapping Script!\\n\\nThis script will automatically install a fully-featured i3wm Arch Linux desktop, which I use as my main machine.\\n\\n-Thomas" 10 60
 	}
 
 refreshkeys() { \
@@ -63,7 +64,7 @@ getuserandpass() { \
 
 usercheck() { \
 	! (id -u $name &>/dev/null) ||
-	dialog --colors --title "WARNING!" --yes-label "CONTINUE" --no-label "No wait..." --yesno "The user \`$name\` already exists on this system. LARBS can install for a user already existing, but it will \\Zboverwrite\\Zn any conflicting settings/dotfiles on the user account.\\n\\nLARBS will \\Zbnot\\Zn overwrite your user files, documents, videos, etc., so don't worry about that, but only click <CONTINUE> if you don't mind your settings being overwritten.\\n\\nNote also that LARBS will change $name's password to the one you just gave." 14 70
+	dialog --colors --title "WARNING!" --yes-label "CONTINUE" --no-label "No wait..." --yesno "The user \`$name\` already exists on this system. TARBS can install for a user already existing, but it will \\Zboverwrite\\Zn any conflicting settings/dotfiles on the user account.\\n\\nTARBS will \\Zbnot\\Zn overwrite your user files, documents, videos, etc., so don't worry about that, but only click <CONTINUE> if you don't mind your settings being overwritten.\\n\\nNote also that TARBS will change $name's password to the one you just gave." 14 70
 	}
 
 adduserandpass() { \
@@ -76,7 +77,7 @@ adduserandpass() { \
 
 gitmakeinstall() {
 	dir=$(mktemp -d)
-	dialog --title "LARBS Installation" --infobox "Installing \`$(basename $1)\` ($n of $total) via \`git\` and \`make\`. $(basename $1) $2." 5 70
+	dialog --title "TARBS Installation" --infobox "Installing \`$(basename $1)\` ($n of $total) via \`git\` and \`make\`. $(basename $1) $2." 5 70
 	git clone --depth 1 "$1" "$dir" &>/dev/null
 	cd "$dir" || exit
 	make &>/dev/null
@@ -84,12 +85,12 @@ gitmakeinstall() {
 	cd /tmp ;}
 
 maininstall() { # Installs all needed programs from main repo.
-	dialog --title "LARBS Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2." 5 70
+	dialog --title "TARBS Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2." 5 70
 	pacman --noconfirm --needed -S "$1" &>/dev/null
 	}
 
 aurinstall() { \
-	dialog --title "LARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2." 5 70
+	dialog --title "TARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2." 5 70
 	grep "^$1$" <<< "$aurinstalled" && return
 	sudo -u $name $aurhelper -S --noconfirm "$1" &>/dev/null
 	}
@@ -115,7 +116,10 @@ serviceinit() { for service in "$@"; do
 
 newperms() { # Set special sudoers settings for install (or after).
 	sed -i "/#LARBS/d" /etc/sudoers
-	echo -e "$@ #LARBS" >> /etc/sudoers ;}
+	echo -e "$@ #LARBS" >> /etc/sudoers ;}	
+	#sed -i "/#TARBS/d" /etc/sudoers
+	#echo -e "$@ #TARBS" >> /etc/sudoers ;}
+
 
 systembeepoff() { dialog --infobox "Getting rid of that retarded error beep sound..." 10 50
 	rmmod pcspkr
@@ -147,8 +151,8 @@ manualinstall() { # Installs $1 manually if not installed. Used only for AUR hel
 
 finalize(){ \
 	dialog --infobox "Preparing welcome message..." 4 50
-	echo "exec_always --no-startup-id notify-send -i ~/.scripts/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000"  >> /home/$name/.config/i3/config
-	dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\\n\\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\\n\\n-Luke" 12 80
+	echo "exec_always --no-startup-id notify-send -i ~/.scripts/larbs.png '<b>Welcome to TARBS:</b> Press Super+F1 for the manual.' -t 10000"  >> /home/$name/.config/i3/config
+	dialog --title "All done!" --msgbox "Congrats! Provided there were no hidden errors, the script completed successfully and all the programs and configuration files should be in place.\\n\\nTo run the new graphical environment, log out and log back in as your new user, then run the command \"startx\" to start the graphical environment.\\n\\n-Thomas" 12 80
 	}
 
 ###
