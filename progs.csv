@@ -71,5 +71,7 @@ A,st, Term Used by stock in configs ATM
 ,kde-applications,KDE programs I use these daily sadly.
 ,cmatrix,terminal screensaver
 ,neofetch,system stats
+,screenfetch,Neofetch Base
+A,ufetch,Small ass version of neofetch 
 ,libreoffice-fresh,office suite
 A,vivaldi,Chrome based broswer
