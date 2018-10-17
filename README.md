@@ -7,7 +7,7 @@ On an Arch based distribution as root, run the following:
 
 ```
 curl -LO allbombson.github.io/TARBS/tarbs.sh
-bash tarbs.sh
+sudo bash tarbs.sh
 ```
 
 That's it.
