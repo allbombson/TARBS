@@ -201,6 +201,17 @@ installationloop
 putgitrepo "$dotfilesrepo" "/home/$name"
 putgitrepo "$dotfilesrepo2" "/home/$name"
 
+#setup zsh
+runuser -l  $name -c 'chsh -s $(which zsh)'
+su $name -c 'chsh -s $(which zsh)'
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+su $name -c 'chmod +x ./install.sh'
+su $name -c 'bash install.sh'
+chmod a+x /home/$name/*
+
+
+
+
 # Install the LARBS Firefox profile in ~/.mozilla/firefox/
 putgitrepo "https://github.com/LukeSmithxyz/mozillarbs.git" "/home/$name/.mozilla/firefox"
 
