@@ -197,9 +197,7 @@ manualinstall $aurhelper
 # and all build dependencies are installed.
 installationloop
 
-# Install the dotfiles in the user's home directory
-putgitrepo "$dotfilesrepo" "/home/$name"
-putgitrepo "$dotfilesrepo2" "/home/$name"
+
 
 #setup zsh
 runuser -l  $name -c 'chsh -s $(which zsh)'
