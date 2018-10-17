@@ -25,7 +25,7 @@ esac done
 
 # DEFAULTS:
 [ -z ${dotfilesrepo+x} ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
-[ -z ${dotfilesrepo2+x} ] && dotfilesrepo2="https://github.com/allbombson/dotfiles-test.git"
+[ -z ${dotfilesrepo2+x} ] && dotfilesrepo2="https://github.com/allbombson/dotfiles-test"
 [ -z ${progsfile+x} ] && progsfile="https://raw.githubusercontent.com/allbombson/TARBS/master/progs.csv"
 [ -z ${aurhelper+x} ] && aurhelper="yay"
 
