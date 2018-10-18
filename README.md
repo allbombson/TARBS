@@ -4,13 +4,16 @@
 ## Installation:
 There are currently 2 versions of TARBS:
 
-1. On an Arch based distribution as root, run the following:
+1. If you wish to have just my configs and nothing more.
+On an Arch based distribution as root, run the following:
 
 ```
 curl -LO allbombson.github.io/TARBS/tarbs.sh
 sudo bash tarbs.sh
 ```
-2. If have an Arch based distro and you wish to have all the tools from Black Arch + more, run the following:
+2. If you wish to have all the tools from Black Arch + more.
+On an Arch based distribution as root, run the following:
+
 ```
 curl -LO allbombson.github.io/TARBS/ba-tarbs.sh
 sudo bash ba-tarbs.sh
