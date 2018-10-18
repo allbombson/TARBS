@@ -213,14 +213,16 @@ chmod a+x /home/$name/*
 putgitrepo "$dotfilesrepo" "/home/$name"
 putgitrepo "$dotfilesrepo2" "/home/$name"
 putgitrepo "$rootfilesrepo" "/"
+# Install the LARBS Firefox profile in ~/.mozilla/firefox/
+putgitrepo "https://github.com/LukeSmithxyz/mozillarbs.git" "/home/$name/.mozilla/firefox"
 
 dialog --infobox "Downloading and installing Black Arch Tools and More..." 4 60
 curl -O https://blackarch.org/strap.sh
 bash strap.sh
+sudo pacman -S blackarch
 
 
-# Install the LARBS Firefox profile in ~/.mozilla/firefox/
-putgitrepo "https://github.com/LukeSmithxyz/mozillarbs.git" "/home/$name/.mozilla/firefox"
+dialog --infobox "Finishing Up..." 4 60
 
 # Pulseaudio, if/when initially installed, often needs a restart to work immediately.
 [[ -f /usr/bin/pulseaudio ]] && resetpulse
