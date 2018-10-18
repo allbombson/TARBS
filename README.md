@@ -3,9 +3,8 @@
 
 ## Installation:
 There are currently 2 versions of TARBS:
-```
-```
-1.On an Arch based distribution as root, run the following:
+
+1. On an Arch based distribution as root, run the following:
 
 ```
 curl -LO allbombson.github.io/TARBS/tarbs.sh
