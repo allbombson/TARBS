@@ -13,7 +13,7 @@ sudo bash tarbs.sh
 2. If have an Arch based distro and you wish to have all the tools from Black Arch + more, run the following:
 ```
 curl -LO allbombson.github.io/TARBS/ba-tarbs.sh
-sudo bash tarbs.sh
+sudo bash ba-tarbs.sh
 ```
 BA standing for Black Arch.
 
