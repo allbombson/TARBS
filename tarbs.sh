@@ -17,7 +17,8 @@
 while getopts ":a:r:p:h" o; do case "${o}" in
 	h) echo -e "Optional arguments for custom use:\\n  -r: Dotfiles repository (local file or url)\\n  -p: Dependencies and programs csv (local file or url)\\n  -a: AUR helper (must have pacman-like syntax)\\n  -h: Show this message" && exit ;;
 	r) dotfilesrepo=${OPTARG} && git ls-remote "$dotfilesrepo" || exit ;;
-	r2) dotfilesrepo=${OPTARG} && git ls-remote "$dotfilesrepo2" || exit ;;
+	r2) dotfilesrepo2=${OPTARG} && git ls-remote "$dotfilesrepo2" || exit ;;
+	rr) rootfilesrepo=${OPTARG} && git ls-remote "$rootfilesrepo" || exit ;;
 	p) progsfile=${OPTARG} ;;
 	a) aurhelper=${OPTARG} ;;
 	*) echo "-$OPTARG is not a valid option." && exit ;;
@@ -25,7 +26,8 @@ esac done
 
 # DEFAULTS:
 [ -z ${dotfilesrepo+x} ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
-[ -z ${dotfilesrepo2+x} ] && dotfilesrepo2="https://github.com/allbombson/dotfiles-test"
+[ -z ${dotfilesrepo2+x} ] && dotfilesrepo2="https://github.com/allbombson/dotfiles"
+[ -z ${rootfilesrepo+x} ] && rootfilesrepo="https://github.com/allbombson/rootfiles"
 [ -z ${progsfile+x} ] && progsfile="https://raw.githubusercontent.com/allbombson/TARBS/master/progs.csv"
 [ -z ${aurhelper+x} ] && aurhelper="yay"
 
@@ -210,6 +212,7 @@ chmod a+x /home/$name/*
 
 putgitrepo "$dotfilesrepo" "/home/$name"
 putgitrepo "$dotfilesrepo2" "/home/$name"
+putgitrepo "$rootfilesrepo" "/"
 
 
 # Install the LARBS Firefox profile in ~/.mozilla/firefox/
