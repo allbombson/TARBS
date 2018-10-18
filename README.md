@@ -10,7 +10,7 @@ There are currently 2 versions of TARBS:
 curl -LO allbombson.github.io/TARBS/tarbs.sh
 sudo bash tarbs.sh
 ```
-2. If have an Arch based distro and you wish to have all the tools from black arch + more, run the following:
+2. If have an Arch based distro and you wish to have all the tools from Black Arch + more, run the following:
 ```
 curl -LO allbombson.github.io/TARBS/ba-tarbs.sh
 sudo bash tarbs.sh
