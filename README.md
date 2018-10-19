@@ -28,6 +28,7 @@ That's it.
 ## What is TARBS?
 
 TARBS is a fork of [LARBS](https://github.com/lukesmithxyz/LARBS) edited to use my configs. 90% of credit goes to Luke.I have left all his cofigs alone in here so if you want more info read up there.
+Also if you take a peak the at packages it uses you will see i have also forked some of the repos and recoded them to fit TARBS.
 ## Customization
 [Full Docs (LARBS)](https://github.com/allbombson/TARBS/tree/master/LARBS)
 
