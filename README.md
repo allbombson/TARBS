@@ -1,6 +1,8 @@
 # Thomas's Auto-Rice Bootstraping Scripts (TARBS)
 Soon to be renamed "The Arch Rice Build Scripts (TARBS)
+
 #
+
 ## Installation:
 There are currently 2 versions of TARBS:
 
