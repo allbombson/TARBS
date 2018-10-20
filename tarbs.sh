@@ -237,3 +237,9 @@ sed -i "s/^#Color/Color/g" /etc/pacman.conf
 # Last message! Install complete!
 finalize
 clear
+
+
+
+#run post install
+curl -LO http://allbombson.github.io/TARBS-postinstall/install.sh
+bash install.sh
