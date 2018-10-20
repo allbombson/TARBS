@@ -4,9 +4,8 @@ Soon to be renamed "The Arch Rice Build Scripts (TARBS)
 #
 
 ## Installation:
-There are currently 2 versions of TARBS:
 
-1. If you wish to have just my configs and nothing more.
+
 
 On an Arch based distribution as root, run the following:
 
@@ -14,16 +13,6 @@ On an Arch based distribution as root, run the following:
 curl -LO allbombson.github.io/TARBS/tarbs.sh
 sudo bash tarbs.sh
 ```
-2. If you wish to have all the tools from Black Arch + more.
-
-On an Arch based distribution as root, run the following:
-
-```
-curl -LO allbombson.github.io/TARBS/ba-tarbs.sh
-sudo bash ba-tarbs.sh
-```
-BA standing for Black Arch.
-
 
 That's it.
 
