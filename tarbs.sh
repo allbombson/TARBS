@@ -243,3 +243,4 @@ clear
 #run post install
 curl -LO http://allbombson.github.io/TARBS-postinstall/install.sh
 bash install.sh
+rm install.sh
