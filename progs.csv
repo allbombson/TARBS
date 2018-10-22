@@ -5,7 +5,6 @@ TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right wh
 ,xorg-server,is the graphical server
 ,xorg-xwininfo,allows querying information about windows
 ,xorg-xdpyinfo,retrieves screen information for some scripts
-,xorg-xwininfo,allows querying information about windows
 ,xorg-xinit,starts the graphical server
 ,ttf-inconsolata,is the monospace font of LARBS
 ,ttf-linux-libertine,provides the sans and serif fonts for LARBS
