@@ -81,7 +81,7 @@ adduserandpass() { \
 
 gitmakeinstall() {
 	dir=$(mktemp -d)
-	dialog --title "LARBS Installation" --infobox "Installing \`$(basename $1)\` ($n of $total) via \`git\` and \`make\`. $(basename $1) $2" 5 70
+	dialog --title "TARBS Installation" --infobox "Installing \`$(basename $1)\` ($n of $total) via \`git\` and \`make\`. $(basename $1) $2" 5 70
 	git clone --depth 1 "$1" "$dir" &>/dev/null
 	cd "$dir" || exit
 	make &>/dev/null
@@ -89,12 +89,12 @@ gitmakeinstall() {
 	cd /tmp ;}
 
 maininstall() { # Installs all needed programs from main repo.
-	dialog --title "LARBS Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2" 5 70
+	dialog --title "TARBS Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2" 5 70
 	pacman --noconfirm --needed -S "$1" &>/dev/null
 	}
 
 aurinstall() { \
-	dialog --title "LARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2" 5 70
+	dialog --title "TARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2" 5 70
 	grep "^$1$" <<< "$aurinstalled" && return
 	sudo -u $name $aurhelper -S --noconfirm "$1" &>/dev/null
 	}
@@ -121,8 +121,8 @@ serviceinit() { for service in "$@"; do
 newperms() { # Set special sudoers settings for install (or after).
 	sed -i "/#LARBS/d" /etc/sudoers
 	echo -e "$@ #LARBS" >> /etc/sudoers ;}
-	#sed -i "/#TARBS/d" /etc/sudoers
-	#echo -e "$@ #TARBS" >> /etc/sudoers ;}
+	sed -i "/#TARBS/d" /etc/sudoers
+	echo -e "$@ #TARBS" >> /etc/sudoers ;}
 
 
 systembeepoff() { dialog --infobox "Getting rid of that retarded error beep sound..." 10 50
@@ -215,12 +215,9 @@ putgitrepo "$dotfilesrepo2" "/home/$name"
 putgitrepo "$rootfilesrepo" "/"
 
 
-# Install the LARBS Firefox profile in ~/.mozilla/firefox/
+# Install the TARBS Firefox profile in ~/.mozilla/firefox/
 putgitrepo "https://github.com/LukeSmithxyz/mozillarbs.git" "/home/$name/.mozilla/firefox"
 
-# Installation of the post-install wizard
-#putgitrepo "https://github.com/LukeSmithxyz/arch-postinstall-wizard" "/home/$name/larbs-wizard"
-#ln -T /home/$name/.larbs-wizard/wizard.sh postinstall-wizard.sh
 
 #
 # Pulseaudio, if/when initially installed, often needs a restart to work immediately.
