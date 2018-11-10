@@ -17,7 +17,7 @@ G,https://github.com/lukesmithxyz/dmenu.git,runs commands and provides a UI for 
 
 
 
-,cronie,manages scheduled tasks
+
 
 
 
@@ -40,12 +40,6 @@ G,https://github.com/lukesmithxyz/dmenu.git,runs commands and provides a UI for 
 
 
 ,networkmanager,does exactly what it sounds like.
-
-
-
-,network-manager-applet,appears in the top right corner and manages the wi-fi connection
-
-
 ,newsboat,is a terminal RSS client.
 
 
@@ -66,7 +60,7 @@ A,unclutter-xfixes-git,hides an inactive mouse.
 A,urlscan,parses URLs in the terminal allowing keyboard-based selection.
 
 
-A,vim-pathogen,manages vim plugins
+
 
 
 ,w3m,is a terminal browser which can also view images.
@@ -98,6 +92,9 @@ A,simple-mtpfs,mounts mtp drives.
 
 G,https://github.com/allbombson/st,is my custom build of suckless's terminal emulator (st)
 G,https://github.com/allbombson/dmenu,runs commands and provides a UI for selection
+,cronie,manages scheduled tasks
+,network-manager-applet,appears in the top right corner and manages the wi-fi connection
+A,vim-pathogen,manages vim plugins
 
 
 
