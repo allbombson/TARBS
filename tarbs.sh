@@ -96,7 +96,7 @@ maininstall() { # Installs all needed programs from main repo.
 aurinstall() { \
 	dialog --title "TARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2" 5 70
 	grep "^$1$" <<< "$aurinstalled" && return
-	sudo -u $name $aurhelper -S --noconfirm "$1" 
+	sudo -u $name $aurhelper -S --noconfirm "$1" &>/dev/null
 	}
 
 installationloop() { \
@@ -153,7 +153,7 @@ manualinstall() { # Installs $1 manually if not installed. Used only for AUR hel
 	curl -sO https://aur.archlinux.org/cgit/aur.git/snapshot/"$1".tar.gz &&
 	sudo -u "$name" tar -xvf "$1".tar.gz &>/dev/null &&
 	cd "$1" &&
-	sudo -u $name makepkg --noconfirm -si 
+	sudo -u $name makepkg --noconfirm -si &>/dev/null
 	cd /tmp) ;}
 
 finalize(){ \
@@ -196,8 +196,9 @@ newperms "%wheel ALL=(ALL) NOPASSWD: ALL"
 
 #manualinstall $aurhelper
 #read -n1 -r -p "Press any key to continue..." key
-curl -LO https://anarchy-linux.org/repo/x86_64/yay-8.1139-1-x86_64.pkg.tar.xz
-pacman -U yay-8.1139-1-x86_64.pkg.tar.xz
+dialog --infobox "Installing yay, an AUR helper Make sure to update once you reboot!..." 4 50
+curl -LO https://anarchy-linux.org/repo/x86_64/yay-8.1139-1-x86_64.pkg.tar.xz &>/dev/null
+pacman -U yay-8.1139-1-x86_64.pkg.tar.xz &>/dev/null
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
@@ -215,11 +216,7 @@ putgitrepo "$dotfilesrepo2" "/home/$name"
 
 
 
-mkdir tester
-#setup zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git tester/.oh-my-zsh
-cp -r tester/.oh-my-zsh /home/$name/.oh-my-zsh
-usermod --shell /bin/zsh $name
+
 
 #extra fonts needed
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -240,7 +237,7 @@ putgitrepo "https://github.com/allbombson/moziltarbs" "/home/$name/.mozilla/fire
 
 # Install vim `plugged` plugins.
 dialog --infobox "Installing vim plugins..." 4 50
-sudo -u "$name" vim -E -c "PlugUpdate|visual|q|q" 
+sudo -u "$name" vim -E -c "PlugUpdate|visual|q|q" &>/dev/null
 
 # Enable services here.
 serviceinit NetworkManager cronie
@@ -267,3 +264,5 @@ chown -R $name /home/$name/*
 curl -LO http://allbombson.github.io/TARBS-postinstall/install.sh
 bash install.sh
 rm install.sh
+
+reboot
