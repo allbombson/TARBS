@@ -218,7 +218,7 @@ putgitrepo "$rootfilesrepo" "/"
 
 
 # Install the TARBS Firefox profile in ~/.mozilla/firefox/
-putgitrepo "https://github.com/LukeSmithxyz/mozillarbs.git" "/home/$name/.mozilla/firefox"
+putgitrepo "https://github.com/allbombson/moziltarbs" "/home/$name/.mozilla/firefox"
 
 
 #
