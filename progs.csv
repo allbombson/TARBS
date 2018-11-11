@@ -69,6 +69,7 @@ A,task-spooler,queues commands or files for download.
 A,simple-mtpfs,mounts mtp drives.
 
 ,flameshot, Great Screen Shot Tool
+,ufetch, is a nicer motd version of neofetch
 
 G,https://github.com/allbombson/st,is my custom build of suckless's terminal emulator (st)
 
