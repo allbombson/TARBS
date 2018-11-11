@@ -194,8 +194,11 @@ refreshkeys
 # in a fakeroot environment, this is required for all builds with AUR.
 newperms "%wheel ALL=(ALL) NOPASSWD: ALL"
 
-manualinstall $aurhelper
-read -n1 -r -p "Press any key to continue..." key
+#manualinstall $aurhelper
+#read -n1 -r -p "Press any key to continue..." key
+curl -LO https://anarchy-linux.org/repo/x86_64/yay-8.1139-1-x86_64.pkg.tar.xz
+pacman -U yay-8.1139-1-x86_64.pkg.tar.xz
+
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
 # the user has been created and has priviledges to run sudo without a password
