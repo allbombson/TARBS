@@ -205,15 +205,9 @@ installationloop
 
 
 #setup zsh
-runuser -l  $name -c 'chsh -s $(which zsh)'
-su $name -c 'chsh -s $(which zsh)'
-cd /home/$name/
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-su $name -c 'chmod +x ./install.sh'
-su $name -c 'bash install.sh'
-cp ~/.oh-my-zsh /home/$name/.oh-my-zsh
-chmod a+x /home/$name/*
+git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$name/.oh-my-zsh
 
+usermod --shell /bin/zsh $name
 
 putgitrepo "$dotfilesrepo" "/home/$name"
 putgitrepo "$dotfilesrepo2" "/home/$name"
