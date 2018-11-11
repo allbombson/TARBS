@@ -10,7 +10,7 @@ Soon to be renamed "The Arch Rice Build Scripts (TARBS)
 On an Arch based distribution as root, run the following:
 
 ```
-curl -LO allbombson.github.io/TARBS/tarbs.sh
+curl -LO allbombson.pw/tarbs.sh
 sudo bash tarbs.sh
 ```
 
