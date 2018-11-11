@@ -96,7 +96,7 @@ maininstall() { # Installs all needed programs from main repo.
 aurinstall() { \
 	dialog --title "TARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2" 5 70
 	grep "^$1$" <<< "$aurinstalled" && return
-	sudo -u $name $aurhelper -S --noconfirm "$1" &>/dev/null
+	sudo -u $name $aurhelper -S --noconfirm "$1" 
 	}
 
 installationloop() { \
@@ -120,9 +120,9 @@ serviceinit() { for service in "$@"; do
 
 newperms() { # Set special sudoers settings for install (or after).
 	sed -i "/#LARBS/d" /etc/sudoers
-	echo -e "$@ #LARBS" >> /etc/sudoers ;}
-	#sed -i "/#TARBS/d" /etc/sudoers
-	#echo -e "$@ #TARBS" >> /etc/sudoers ;}
+	echo -e "$@ #LARBS" >> /etc/sudoers
+	sed -i "/#TARBS/d" /etc/sudoers
+	echo -e "$@ #TARBS" >> /etc/sudoers ;}
 
 
 
@@ -237,7 +237,7 @@ putgitrepo "https://github.com/allbombson/moziltarbs" "/home/$name/.mozilla/fire
 
 # Install vim `plugged` plugins.
 dialog --infobox "Installing vim plugins..." 4 50
-sudo -u "$name" vim -E -c "PlugUpdate|visual|q|q" >/dev/null
+sudo -u "$name" vim -E -c "PlugUpdate|visual|q|q" 
 
 # Enable services here.
 serviceinit NetworkManager cronie
