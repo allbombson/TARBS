@@ -211,7 +211,9 @@ usermod --shell /bin/zsh $name
 #extra fonts needed
 git clone https://github.com/powerline/fonts.git --depth=1
 sh fonts/install.sh
+cp -r /root/.local/share/fonts /home/$name/.local/share/fonts
 rm -rf fonts
+
 
 #add repos
 putgitrepo "$dotfilesrepo" "/home/$name"
