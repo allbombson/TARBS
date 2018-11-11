@@ -203,6 +203,15 @@ manualinstall $aurhelper
 installationloop
 
 
+
+
+#add repos
+putgitrepo "$dotfilesrepo" "/home/$name"
+putgitrepo "$dotfilesrepo2" "/home/$name"
+#putgitrepo "$rootfilesrepo" "/"
+
+
+
 mkdir tester
 #setup zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git tester/.oh-my-zsh
@@ -216,10 +225,6 @@ cp -r /root/.local/share/fonts /home/$name/.local/share/fonts
 rm -rf fonts
 
 
-#add repos
-putgitrepo "$dotfilesrepo" "/home/$name"
-putgitrepo "$dotfilesrepo2" "/home/$name"
-#putgitrepo "$rootfilesrepo" "/"
 
 
 # Install the TARBS Firefox profile in ~/.mozilla/firefox/
