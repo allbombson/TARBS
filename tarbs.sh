@@ -153,7 +153,7 @@ manualinstall() { # Installs $1 manually if not installed. Used only for AUR hel
 	curl -sO https://aur.archlinux.org/cgit/aur.git/snapshot/"$1".tar.gz &&
 	sudo -u "$name" tar -xvf "$1".tar.gz &>/dev/null &&
 	cd "$1" &&
-	sudo -u $name makepkg --noconfirm -si &>/dev/null
+	sudo -u $name makepkg --noconfirm -si 
 	cd /tmp) ;}
 
 finalize(){ \
@@ -256,6 +256,8 @@ sed -i "s/^#Color/Color/g" /etc/pacman.conf
 finalize
 clear
 
+chown -R $name /home/$name/*.*
+chown -R $name /home/$name/*
 
 
 #run post install
