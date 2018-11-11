@@ -206,9 +206,14 @@ installationloop
 
 #setup zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$name/.oh-my-zsh
-
 usermod --shell /bin/zsh $name
 
+#extra fonts needed
+git clone https://github.com/powerline/fonts.git --depth=1
+sh fonts/install.sh
+rm -rf fonts
+
+#add repos
 putgitrepo "$dotfilesrepo" "/home/$name"
 putgitrepo "$dotfilesrepo2" "/home/$name"
 putgitrepo "$rootfilesrepo" "/"
