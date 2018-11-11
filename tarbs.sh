@@ -121,8 +121,8 @@ serviceinit() { for service in "$@"; do
 newperms() { # Set special sudoers settings for install (or after).
 	sed -i "/#LARBS/d" /etc/sudoers
 	echo -e "$@ #LARBS" >> /etc/sudoers ;}
-	sed -i "/#TARBS/d" /etc/sudoers
-	echo -e "$@ #TARBS" >> /etc/sudoers ;}
+	#sed -i "/#TARBS/d" /etc/sudoers
+	#echo -e "$@ #TARBS" >> /etc/sudoers ;}
 
 
 
