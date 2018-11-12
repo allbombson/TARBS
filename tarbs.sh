@@ -219,10 +219,10 @@ putgitrepo "$dotfilesrepo2" "/home/$name"
 
 
 #extra fonts needed
-git clone https://github.com/powerline/fonts.git --depth=1
-sh fonts/install.sh
-cp -r /root/.local/share/fonts /home/$name/.local/share/fonts
-rm -rf fonts
+git clone https://github.com/powerline/fonts.git --depth=1 &>/dev/null
+sh fonts/install.sh &>/dev/null
+cp -r /root/.local/share/fonts /home/$name/.local/share/fonts &>/dev/null
+rm -rf fonts &>/dev/null
 
 
 
