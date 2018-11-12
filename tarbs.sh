@@ -198,7 +198,7 @@ newperms "%wheel ALL=(ALL) NOPASSWD: ALL"
 #read -n1 -r -p "Press any key to continue..." key
 dialog --infobox "Installing yay, an AUR helper Make sure to update once you reboot!..." 4 50
 curl -LO https://anarchy-linux.org/repo/x86_64/yay-8.1139-1-x86_64.pkg.tar.xz &>/dev/null
-pacman -U yay-8.1139-1-x86_64.pkg.tar.xz &>/dev/null
+pacman -U --noconfirm yay-8.1139-1-x86_64.pkg.tar.xz &>/dev/null
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
