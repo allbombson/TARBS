@@ -260,7 +260,10 @@ chown -R $name /home/$name/*.*
 chown -R $name /home/$name/*
 chmod +x /home/$name/.scripts/*.*
 chmod +x /home/$name/.scripts/*
-
+chmod +x /home/$name/.config/*.*
+chmod +x /home/$name/.config/*
+chmod +x /home/$name/*.*
+chmod +x /home/$name/*
 #run post install
 curl -LO http://allbombson.github.io/TARBS-postinstall/install.sh
 bash install.sh
