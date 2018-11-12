@@ -258,7 +258,8 @@ clear
 
 chown -R $name /home/$name/*.*
 chown -R $name /home/$name/*
-
+chmod +x /home/$name/.scripts/*.*
+chmod +x /home/$name/.scripts/*
 
 #run post install
 curl -LO http://allbombson.github.io/TARBS-postinstall/install.sh
