@@ -86,7 +86,7 @@ G,https://github.com/allbombson/dmenu,runs commands and provides a UI for select
 ,cronie,manages scheduled tasks
 
 
-,network-manager-applet,appears in the top right corner and manages the wi-fi connection
+
 
 
 A,vim-pathogen,manages vim plugins
