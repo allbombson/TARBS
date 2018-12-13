@@ -269,4 +269,9 @@ curl -LO http://allbombson.github.io/TARBS-postinstall/install.sh
 bash install.sh
 rm install.sh
 
+
+
+timedatectl set-ntp true
+
+
 reboot
